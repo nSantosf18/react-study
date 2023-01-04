@@ -31,7 +31,7 @@ function App() {
   return (
     <div className="App">
       <div className="input-wrapper">
-        <input id="nome" type="text"
+        <input id="search" type="text"
           placeholder="search..."
           value={search}
           onChange={e => setSearch(e.target.value)}></input>
@@ -41,7 +41,6 @@ function App() {
         <caption>Funcionários</caption>
         <thead>
           <tr>
-            <th>Id</th>
             <th>Nome</th>
             <th>Salário</th>
             <th>Action</th>
@@ -52,7 +51,6 @@ function App() {
             search.length > 0 ? (
               filteredSearch.map(func =>
                 <tr key={func.id}>
-                  <td>{func.id}</td>
                   <td>{func.nome}</td>
                   <td>{func.salario}</td>
                   <td>
@@ -64,7 +62,6 @@ function App() {
             ) : (
               funcionarios.map(func =>
                 <tr key={func.id}>
-                  <td>{func.id}</td>
                   <td>{func.nome}</td>
                   <td>{func.salario}</td>
                   <td>
