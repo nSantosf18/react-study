@@ -13,7 +13,7 @@ function App() {
   const [nome, setNome] = useState<string>('');
   const [salario, setSalario] = useState<number>(0);
 
-  const filteredSearch = search.length > 0 ? funcionarios.filter(func => func.nome.includes(search)) : [];
+  const filteredSearch = search.length > 0 ? funcionarios.filter(func => func.nome.toLowerCase().includes(search.toLowerCase())) : [];
 
   const addFunc = () => {
     if (nome.length > 3 && salario.toString().length > 1) {
@@ -31,11 +31,11 @@ function App() {
   return (
     <div className="App">
       <div className="input-wrapper">
-        <input id="search" type="text"
+        <input className="search" type="text"
           placeholder="search..."
           value={search}
           onChange={e => setSearch(e.target.value)}></input>
-        <i className="ph-magnifying-glass" />
+        <i className="ph-magnifying-glass-light" />
       </div>
       <table>
         <caption>Funcionários</caption>
@@ -66,7 +66,7 @@ function App() {
                   <td>{func.salario}</td>
                   <td>
                     <button type="button" onClick={() => removeFunc(func)}>
-                      <i className="ph-trash"></i>
+                      <i className="ph-trash-light"></i>
                     </button>
                   </td>
                 </tr>)
@@ -85,8 +85,10 @@ function App() {
           placeholder="Salário"
           value={salario}
           onChange={e => setSalario(e.target.valueAsNumber)}></input>
+        <button type="button" onClick={addFunc}>
+          <i className="ph-plus" />
+        </button>
       </div>
-      <button type="button" onClick={addFunc}>Adicionar Funcionario</button>
 
     </div>
   )

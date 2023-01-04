@@ -10,93 +10,96 @@
 }
 
 body * {
-    text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 table {
-    width: min(90%, 800px);
+    overflow: hidden;
+    width: min(90%, 500px);
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
     border-collapse: collapse;
     border-radius: 10px;
-    background-color: white;
-    color: var(--rosa-claro);
-    box-shadow: 0px 1px 8px 0px rgba(139, 95, 95, 0.569);
+    color: var(--rosa-escuro);
+    box-shadow: 0px 0px 3px 0px rgba(150, 100, 100, 0.6);
 }
 
 table caption {
-    margin: 10px;
+    margin: 15px;
     font-weight: bold;
 }
 
 td,
 th {
-    border-top: solid var(--rosa-escuro) 1px;
-    padding: 3px;
+    padding: 10px 10px;
 }
 
-th {
-    border-top: none;
+tr {
+    border-bottom: solid #965a5a 1px;
 }
 
-td:first-child,
-th:first-child {
-    border-left: none;
+tr:last-of-type {
+    border-bottom: solid #965a5a 1px;
 }
-
 
 tbody:has(tr:hover) tr:not(:hover) {
-    opacity: .4;
+    opacity: .6;
 }
 
 .input-wrapper {
     position: relative;
-    width: auto;
-    height: auto;
     background-color: rgb(240, 200, 200);
 }
 
 .input-wrapper i {
     position: relative;
-    right: 2.3rem;
+    right: 2.7rem;
     bottom: -0.2rem;
     color: var(--rosa-claro);
 }
 
 .container {
-    margin-top: 25px;
+    text-align: center;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 input {
-    margin: 15px;
+    margin: 20px;
     border-radius: 4px;
     background-color: white;
     border: none;
     color: var(--rosa-escuro);
-    box-shadow: 0px 1px 8px 0px rgba(139, 95, 95, 0.569);
+    box-shadow: 0px 1px 3px 0px rgba(150, 100, 100, 0.6);
     padding: 5px;
     outline: none;
 }
 
-#search {
-    width: min(50%, 400px);
-    text-align: left;
+.search {
+    width: min(40%, 400px);
 }
 
 ::placeholder {
     padding: 6px;
-    color: var(--rosa-claro);
+    color: var(--rosa-escuro);
+    font-weight: bolder;
+    opacity: 0.5;
 }
 
 button {
-    padding: 3px;
-    margin: 10px;
     color: white;
     border: none;
     background-color: var(--rosa-claro);
-    border-radius: 5px;
+    border-radius: 50%;
+    box-shadow: 0px 1px 3px 0px rgba(150, 100, 100, 0.5);
+}
+
+button i {
+    font-size: 20px;
+    vertical-align: -0.15em;
 }
 
 button:hover {
