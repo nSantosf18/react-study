@@ -14,7 +14,6 @@ body * {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
 table {
     width: min(90%, 800px);
     margin-left: auto;
@@ -67,9 +66,7 @@ tbody:has(tr:hover) tr:not(:hover) {
 
 .container {
     margin-top: 25px;
-    display: flex;
     align-items: center;
-    justify-content: center;
 }
 
 input {
