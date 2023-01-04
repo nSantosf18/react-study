@@ -49,7 +49,6 @@ th:first-child {
 
 tbody:has(tr:hover) tr:not(:hover) {
     opacity: .4;
-    scale: .97;
 }
 
 .input-wrapper {
