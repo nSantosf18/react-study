@@ -5,14 +5,18 @@ import './App.css'
 interface Funcionario {
   id: string,
   nome: string,
-  salario: number
+  salario: string
 }
 
 function App() {
-  const [funcionarios, setFuncionarios] = useState<Funcionario[]>([]);
+  const [funcionarios, setFuncionarios] = useState<Funcionario[]>([
+    { id: uuidv4(), nome: 'Carlos Alberto', salario: '7000' },
+    { id: uuidv4(), nome: 'Vinicius Souza', salario: '250' },
+    { id: uuidv4(), nome: 'Luiz Portinoli', salario: '600' }
+  ]);
   const [search, setSearch] = useState('');
   const [nome, setNome] = useState<string>('');
-  const [salario, setSalario] = useState<number>(0);
+  const [salario, setSalario] = useState<string>('');
 
   const filteredSearch = search.length > 0 ? funcionarios.filter(func => func.nome.toLowerCase().includes(search.toLowerCase())) : [];
 
@@ -20,8 +24,7 @@ function App() {
     if (nome.length > 1) {
       setFuncionarios([...funcionarios, { id: uuidv4(), nome: nome, salario: salario }]);
       setNome('');
-      setSalario(0);
-      console.log(funcionarios)
+      setSalario('');
     }
   }
 
@@ -54,7 +57,7 @@ function App() {
               filteredSearch.map(func =>
                 <tr key={func.id}>
                   <td>{func.nome}</td>
-                  <td>{func.salario}</td>
+                  <td>{Number(func.salario).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</td>
                   <td>
                     <button type="button">
                       <i className="ph-trash"></i>
@@ -65,7 +68,7 @@ function App() {
               funcionarios.map(func =>
                 <tr key={func.id}>
                   <td>{func.nome}</td>
-                  <td>{func.salario}</td>
+                  <td>{Number(func.salario).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</td>
                   <td>
                     <button type="button" onClick={() => removeFunc(func)}>
                       <i className="ph-trash-light"></i>
@@ -86,7 +89,7 @@ function App() {
         <input type="number"
           placeholder="Salário"
           value={salario}
-          onChange={e => setSalario(e.target.valueAsNumber)}></input>
+          onChange={e => setSalario(e.target.value)}></input>
         <button type="button" onClick={addFunc}>
           <i className="ph-plus" />
         </button>
