@@ -1,8 +1,9 @@
 import { useState } from 'react'
+import { v4 as uuidv4 } from 'uuid';
 import './App.css'
 
 interface Funcionario {
-  id: number,
+  id: string,
   nome: string,
   salario: number
 }
@@ -16,10 +17,11 @@ function App() {
   const filteredSearch = search.length > 0 ? funcionarios.filter(func => func.nome.toLowerCase().includes(search.toLowerCase())) : [];
 
   const addFunc = () => {
-    if (nome.length > 3 && salario.toString().length > 1) {
-      setFuncionarios([...funcionarios, { id: funcionarios.length + 1, nome: nome, salario: salario }]);
+    if (nome.length > 1) {
+      setFuncionarios([...funcionarios, { id: uuidv4(), nome: nome, salario: salario }]);
       setNome('');
       setSalario(0);
+      console.log(funcionarios)
     }
   }
 
