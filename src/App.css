@@ -11,6 +11,7 @@
 
 body * {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    caret-color: transparent;
 }
 
 table {
@@ -79,6 +80,7 @@ input {
     padding: 5px;
     outline: none;
     transition: 0.1s;
+    caret-color: var(--rosa-escuro);
 }
 
 input:hover {
