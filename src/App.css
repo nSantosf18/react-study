@@ -84,12 +84,12 @@ input {
 }
 
 input:hover {
-    outline: 3px solid rgba(150, 100, 100, 0.5);
+    outline: 3px solid rgba(150, 100, 100, 0.6);
     outline-offset: 0.5px;
 }
 
 input:focus {
-    outline: 3px solid rgba(150, 100, 100, 0.5);
+    outline: 3px solid rgba(150, 100, 100, 0.6);
 }
 
 .search {
